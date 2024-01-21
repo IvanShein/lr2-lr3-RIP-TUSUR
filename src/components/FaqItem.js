@@ -1,17 +1,28 @@
 import { useState } from 'react';
 import FaqForm from './FaqForm';
+import api from '../utils/Api';
 
 function FaqItem(props) {
   const [faq, setFaq] = useState(props.data);
   const [isEdit, setIsEdit] = useState(false);
+
+  const handleEdit = (obj) => {
+    api.updateFaq(obj)
+      .then((respData) => {
+        setFaq(respData.path);
+        setIsEdit(false);
+      })
+      .catch((error) => {
+        console.log(`К сожалению, возникла ошибка: ${error}`);
+      })
+  };
 
   if (isEdit) return (
     <FaqForm data={faq}
       formTitle='Измените вопрос и/или ответ'
       onCancel={() => setIsEdit(false)}
       onSave={(obj) => {
-        setFaq(obj);
-        setIsEdit(false);
+        handleEdit(obj);
       }}
     />
   )

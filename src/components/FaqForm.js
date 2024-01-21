@@ -18,14 +18,14 @@ function FaqForm(props) {
       <h2 className='faq-form__title'>{props.formTitle}</h2>
       <textarea className='faq-form__input'
         type='text'
-        maxlength='150'
+        maxLength='150'
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
         placeholder='Введите сюда Ваш вопрос'
       />
       <textarea className='faq-form__input'
         type='text'
-        maxlength='150'
+        maxLength='150'
         value={answer}
         onChange={(e) => setAnswer(e.target.value)}
         placeholder='Введите сюда ответ'

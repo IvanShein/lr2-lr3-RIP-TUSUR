@@ -1,37 +1,54 @@
 import { useState, useEffect } from 'react';
 import FaqItem from './FaqItem';
 import FaqForm from './FaqForm';
+import api from '../utils/Api';
 
 function FaqList() {
   const [list, setList] = useState([]);
   useEffect(() => {
-    setList([
-      { id: 1, question: 'чё?', answer: 'а, ни чё!' },
-      { id: 2, question: 'где?', answer: 'где-где, в Караганде!' }
-    ])
+    api.getAllFaqs()
+      .then((allFaqs) => {
+        setList(allFaqs.path);
+      })
+      .catch((error) => {
+        console.log(`К сожалению, возникла ошибка: ${error}`);
+      })
   }, []);
 
   function handleAdd(data) {
-    let temp = Array.from(list);
-    temp.push(data);
-    setList(temp);
-    };
+    api.sendNewFaq(data)
+      .then((respData) => {
+        let temp = Array.from(list);
+        temp.push(respData.path);
+        setList(temp);
+      })
+      .catch((error) => {
+        console.log(`К сожалению, возникла ошибка: ${error}`);
+      })
+  };
 
   function handleDelete(id) {
-    let temp = Array.from(list);
-    let index = temp.findIndex(item => item.id === id);
-    temp.splice(index, 1);
-    setList(temp);
-    };
+    api.deleteFaq(id)
+      .then((respData) => {
+        let temp = Array.from(list);
+        let index = temp.findIndex(item => item.id === id);
+        temp.splice(index, 1);
+        setList(temp);
+      })
+      .catch((error) => {
+        console.log(`К сожалению, возникла ошибка: ${error}`);
+      })
+
+  };
 
   return (
     <div className='faq-list'>
       {list.map((item, key) => {
-        return <FaqItem key={item.id} data={item} onDelete={handleDelete}/>
+        return <FaqItem key={item.id} data={item} onDelete={handleDelete} />
       })}
       <FaqForm
-      onSave={handleAdd}
-      formTitle={'Введите здесь вопрос и/или ответ'}
+        onSave={handleAdd}
+        formTitle={'Введите здесь вопрос и/или ответ'}
       />
     </div>
   )

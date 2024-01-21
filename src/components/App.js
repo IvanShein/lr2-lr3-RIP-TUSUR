@@ -6,9 +6,9 @@ function App() {
   const authorName = "Иван Шеин";
   return (
     <div className="page">
-      <Header name={authorName}/>
+      <Header name={authorName} />
       <Main />
-      <Footer name={authorName}/>
+      <Footer name={authorName} />
     </div>
   );
 }
