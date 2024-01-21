@@ -5,7 +5,7 @@ function Header(props) {
         FAQ
       </h1>
       <h2 className="header__subtitle">
-        Лабораторная работа 2. РИП. JS/React. {props.name}
+        Лабораторная работа 2. РИП. JS/React. {props.name}.
       </h2>
     </header>
   )

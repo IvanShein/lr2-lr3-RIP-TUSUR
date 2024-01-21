@@ -3,11 +3,12 @@ import Main from './Main';
 import Footer from './Footer';
 
 function App() {
+  const authorName = "Иван Шеин";
   return (
     <div className="page">
-      <Header name={"Шеин Иван"}/>
-      {/* <Main /> */}
-      <Footer />
+      <Header name={authorName}/>
+      <Main />
+      <Footer name={authorName}/>
     </div>
   );
 }
