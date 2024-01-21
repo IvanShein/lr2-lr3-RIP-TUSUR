@@ -5,7 +5,7 @@ function Main() {
 
   return (
     <main className="content">
-      <h2>Список часто задаваемых вопросов.</h2>
+      <h2 className='content__title'>Список часто задаваемых вопросов.</h2>
       <FaqList />
     </main>
   )

@@ -29,7 +29,10 @@ function FaqList() {
       {list.map((item, key) => {
         return <FaqItem key={item.id} data={item} onDelete={handleDelete}/>
       })}
-      <FaqForm onSave={handleAdd}/>
+      <FaqForm
+      onSave={handleAdd}
+      formTitle={'Введите здесь вопрос и/или ответ'}
+      />
     </div>
   )
 }

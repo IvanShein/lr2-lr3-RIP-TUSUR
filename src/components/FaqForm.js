@@ -14,20 +14,31 @@ function FaqForm(props) {
   };
 
   return (
-    <div>
-      <h2>Фак Эдд Форм</h2>
-      <input
+    <div className='faq-form'>
+      <h2 className='faq-form__title'>{props.formTitle}</h2>
+      <textarea className='faq-form__input'
+        type='text'
+        maxlength='150'
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
         placeholder='Введите сюда Ваш вопрос'
       />
-      <input
+      <textarea className='faq-form__input'
+        type='text'
+        maxlength='150'
         value={answer}
         onChange={(e) => setAnswer(e.target.value)}
         placeholder='Введите сюда ответ'
       />
-      <button onClick={handleSave} className='faq-form__button link-decoration'> Сохранить </button>
-      {props.data && <button onClick={() => props.onCancel()} className='faq-form__button link-decoration'> Отменить </button>}
+      <button
+        onClick={handleSave}
+        className='faq-form__button button link-decoration'
+      > Сохранить </button>
+      {props.data &&
+        <button
+          onClick={() => props.onCancel()}
+          className='faq-form__button button link-decoration'
+        > Отменить </button>}
     </div>
   )
 }

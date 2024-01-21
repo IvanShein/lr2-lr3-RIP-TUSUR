@@ -5,9 +5,39 @@
 }
 
 .link-decoration:hover {
-  opacity: 0.7;
+  opacity: 0.6;
   cursor: pointer;
   transition: .2s;
+}
+
+.button {
+  /* margin: 0 5px;
+  padding: 0;
+  background-color: #edebeb;
+  border-radius: 5px;
+  border-color: #b5ccc6;
+  color: #6a7975;
+  min-height: 25px;
+  font-size: 14px; */
+  margin: 1px 5px;
+  padding: 2px 2px;
+  border-radius: 2px;
+  background-color: #edebeb;
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+  border-style: solid;
+  border-width: 1px;
+  padding: 1px 7px 2px;
+  text-rendering: auto;
+  color: initial;
+  text-align: center;
+  font: 400 14px system-ui;
+  min-height: 25px;
+  min-width: 120px;
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px #75c2ac;
 }
 
 .page {
@@ -48,6 +78,12 @@
   text-align: center;
 }
 
+.content__title {
+  padding: 20px 0 5px;
+  margin: 0;
+  font-size: 22px;
+}
+
 .faq-list {
   color: #5c6a66;
   padding: 0 30px 30px;
@@ -56,13 +92,29 @@
 .faq-list__item {
   margin: 10px auto;
   padding: 0;
-  border: #75c2ac 1px solid;
+  /* border: #75c2ac 1px solid; */
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+  border-style: solid;
+  border-width: 1px;
   border-radius: 2px;
+  min-height: 148px;
+  font-size: 14px;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between;
 }
 
 .faq-list__item-question {
   margin: 10px 20px;
   padding: 0;
+  overflow: auto;
+  /* border-bottom: #75c2ac 1px solid; */
+}
+
+.faq-list__item-answer {
+  margin: 10px 20px;
+  padding: 0;
+  overflow: auto;
   /* border-bottom: #75c2ac 1px solid; */
 }
 
@@ -72,14 +124,49 @@
 }
 
 .faq-list__item-button {
-  margin: 0 5px;
+  padding: 2px 2px;
+}
+
+.faq-form {
+  margin: 10px auto;
   padding: 0;
-  background-color: #edebeb;
-  border-radius: 5px;
-  border-color: #b5ccc6;
-  color: #6a7975;
-  min-height: 25px;
-  font-size: 14px;
+  border-radius: 2px;
+  min-height: 150px;
+}
+
+.faq-form__title {
+  padding: 14px 0;
+  margin: 0 auto;
+  font-size: 16px;
+}
+
+.faq-form__input {
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+  border-style: solid;
+  border-width: 1px;
+  height: 50px;
+  margin: 1px 5px;
+  padding: 5px 5px;
+  border-radius: 2px;
+  font-size: 12px;
+  width: 33vw;
+  overflow: auto;
+  resize: none;
+}
+
+.faq-form__input::placeholder {
+  color: #9baba6;
+  font-size: 12px;
+}
+
+.faq-form__input:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px #75c2ac;
+}
+
+.faq-form__button {
+  padding: 1px 1px;
+  margin: 10px 2px 2px;
 }
 
 .footer {
